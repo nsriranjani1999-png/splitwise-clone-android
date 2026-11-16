@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/groupsFragment">
+
+    <fragment
+        android:id="@+id/groupsFragment"
+        android:name="com.example.splitwise.ui.groups.GroupsFragment"
+        android:label="Groups">
+        <action
+            android:id="@+id/action_groups_to_createGroup"
+            app:destination="@id/createGroupFragment" />
+        <action
+            android:id="@+id/action_groups_to_groupDetail"
+            app:destination="@id/groupDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/createGroupFragment"
+        android:name="com.example.splitwise.ui.groups.CreateGroupFragment"
+        android:label="New group" />
+
+    <fragment
+        android:id="@+id/groupDetailFragment"
+        android:name="com.example.splitwise.ui.detail.GroupDetailFragment"
+        android:label="{groupName}">
+        <argument
+            android:name="groupId"
+            app:argType="long" />
+        <argument
+            android:name="groupName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_groupDetail_to_addExpense"
+            app:destination="@id/addExpenseFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addExpenseFragment"
+        android:name="com.example.splitwise.ui.expense.AddExpenseFragment"
+        android:label="Add expense">
+        <argument
+            android:name="groupId"
+            app:argType="long" />
+    </fragment>
+
+</navigation>
